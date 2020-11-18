@@ -1,0 +1,12 @@
+{
+  "name": "TaskProject",
+  "displayName": "TaskProject",
+  "expo": {
+    "name": "TaskProject",
+    "slug": "TaskProject",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

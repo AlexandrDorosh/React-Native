@@ -1,21 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { Provider } from 'react-redux';
 
+import App2 from './App2';
+import ErrorBoundry from './Components/error-boundry/error-boundry';
+import EShopService from './services/e-shop-services';
+import { GoodsstoreServiceProvider } from './Components/goodsstore-service-context/goodsstore-service-context';
+
+import store from './store';
+
+const eShopService = new EShopService()
+
+    
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  return(
+    <Provider store={store}>
+        <ErrorBoundry>
+            <GoodsstoreServiceProvider value={eShopService}>
+                    <App2 />
+            </GoodsstoreServiceProvider>
+        </ErrorBoundry>
+    </Provider>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
